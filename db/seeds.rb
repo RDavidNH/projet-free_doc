@@ -14,7 +14,7 @@ require 'faker'
   doctor = Doctor.create(
     first_name: Faker::Name.first_name, 
     last_name: Faker::Name.last_name, 
-    speciality: "Spec #{i}", 
+    #speciality: "Spec #{i}", 
     zip_code: Faker::Number.number(digits: 3),
     city: city
   )
@@ -30,4 +30,9 @@ require 'faker'
     doctor: doctor,patient: patient,
     city: city
   )
+
+  specialty = Specialty.create(specialty_name: "Spec #{i}")
+
+  doctor_specialty = DoctorSpecialty.create(doctor: doctor, specialty: specialty)
+
 end
